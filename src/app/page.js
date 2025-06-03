@@ -1,101 +1,223 @@
-import Image from "next/image";
+import Image from 'next/image';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import { FaClock, FaBook, FaWineGlassAlt, FaPhotoVideo } from 'react-icons/fa';
+
+import { FiArrowRight } from 'react-icons/fi';
+import Link from "next/link";
+
+import MenuSection from "@/app/MenuSection/page";
+import styles from "@/app/MenuSection/MenuSection.module.css";
+import './globals.css'
+
+import CategoriesPage from "@/app/categories/page";
+
+
+export const metadata = {
+    title: 'Выкуп винтажных вещей СССР | Часы, фототехника, хрусталь',
+    description: 'Покупаем винтажные вещи СССР: часы, фототехнику, хрусталь, посуду и предметы интерьера. Бесплатная оценка и выезд по городу. Продайте легко и выгодно!',
+    keywords: [
+        'выкуп винтажных вещей',
+        'винтаж СССР',
+        'купим часы СССР',
+        'фототехника СССР',
+        'хрусталь СССР',
+        'антиквариат',
+        'продать старые вещи',
+        'винтажные предметы интерьера'
+    ],
+    openGraph: {
+        title: 'Выкуп винтажных вещей СССР | Часы, фототехника, хрусталь — YourBrand',
+        description: 'Честный и быстрый выкуп винтажных вещей советского периода. Работаем по городу, выезд бесплатно!',
+        images: [
+            {
+                url: '/images/Watch.jpg',
+                width: 800,
+                height: 600,
+                alt: 'Часы СССР',
+            }
+        ],
+        type: 'website',
+        locale: 'ru_RU',
+    },
+    robots: 'index, follow',
+};
+
+
+
+
+
+const featuredItems = [
+    {
+        id: 1,
+        title: "Часы СССР",
+        description: "Купим наручные, настенные и настольные часы.",
+        icon: <FaClock className="text-3xl text-amber-800" />,
+        image: "/images/Watch.jpg",
+    },
+
+    {
+        id: 4,
+        title: "Фототехника СССР",
+        description: " Купим Фотоаппараты, объективы, фотопринадлежности СССР.",
+        icon: <FaPhotoVideo className="text-3xl text-amber-800" />,
+        image: "/images/photo-apparat.jpg",
+    },
+
+    {
+        id: 4,
+        title: "Хрусталь и стекло СССР",
+        description: "Выкупаем цветной хрусталь, вазы, сервизы советского периода.",
+        icon: <FaWineGlassAlt className="text-3xl text-amber-800" />,
+        image: "/images/Decorating.jpg",
+    },
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    return (
+        <div className="  container mx-auto px-4 py-8">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+            <div className='book-bg'>
+
+                <section className=" ml-5 pt-10 sm:pt-28">
+                    <h1 className="text-4xl font-semibold text-white  leading-10">
+                        Куплю советские Книги,
+                        <h3>Часы Фарфор Бижутерию</h3>
+                        <h3>и многое другое!</h3>
+                    </h1>
+
+
+                    <a href="https://wa.me/79268495545" target="_blank" rel="noopener" className={styles.btn2}>Связаться
+                        по
+                        WhatsApp</a>
+                </section>
+
+            </div>
+
+
+            <MenuSection/>
+
+            {/*
+            <section className="mb-24 mt-4 bg-gradient-to-br from-[#222121] to-[#2e2b28] p-8 rounded-2xl shadow-xl">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">Почему выбирают нас?</h2>
+
+                <div className="grid md:grid-cols-3 gap-8 text-white">
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md">
+                        <h3 className="text-xl font-semibold mb-3">💸 Честная оценка</h3>
+                        <p className="text-sm text-gray-300">
+                            Мы не занижаем цену. Оцениваем с учётом актуального спроса и состояния вещей.
+                        </p>
+                    </div>
+
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md">
+                        <h3 className="text-xl font-semibold mb-3">🚗 Быстрый выезд</h3>
+                        <p className="text-sm text-gray-300">
+                            Бесплатно приедем по городу и области, без лишних формальностей и задержек.
+                        </p>
+                    </div>
+
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md">
+                        <h3 className="text-xl font-semibold mb-3">♻️ Удобно и экологично</h3>
+                        <p className="text-sm text-gray-300">
+                            Вещи получат вторую жизнь. Вы освобождаете место — и ещё получаете деньги.
+                        </p>
+                    </div>
+                </div>
+            </section>*/}
+
+            <section className="mb-24 mt-4 bg-gradient-to-br from-[#222121] to-[#2e2b28] p-8 rounded-2xl shadow-xl">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">Почему выбирают нас?</h2>
+
+                <div className="grid md:grid-cols-3 gap-8 text-white">
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md">
+                        <h3 className="text-xl font-semibold mb-3">💸 Честная оценка</h3>
+                        <p className="text-sm text-gray-300">
+                            Мы не занижаем цену. Оцениваем с учётом актуального спроса и состояния вещей.
+                        </p>
+                    </div>
+
+                    {/* Заменённый блок */}
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md text-center">
+                        <h3 className="text-xl font-semibold mb-3">📞 Связь с нами</h3>
+                        <p className="text-sm text-gray-300 mb-4">
+                            Напишите нам в WhatsApp или позвоните — мы всё расскажем и приедем в удобное для вас время.
+                        </p>
+
+                    </div>
+
+                    <div
+                        className="p-6 bg-[#1f1d1c] rounded-xl hover:bg-[#2b2825] transition-all duration-300 shadow-md">
+                        <h3 className="text-xl font-semibold mb-3">♻️ Удобно и экологично</h3>
+                        <p className="text-sm text-gray-300">
+                            Вещи получат вторую жизнь. Вы освобождаете место — и ещё получаете деньги.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section className="mb-12">
+                <h2 className="text-2xl mb-12 ml-0 sm:ml-10 text-center sm:text-left sm font-semibold text-white  sm:text-3xl ">Что
+                    мы покупаем?</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {featuredItems.map((item) => (
+                        <div
+                            key={item.id}
+                            className="cursor-pointer p-6 rounded-2xl bg-gradient-to-br from-[#1c1b1b] to-[#2d2420] shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:-translate-y-2 hover:scale-105 group border-none "
+                        >
+                            <div
+                                className="flex justify-center mb-4 transition-transform duration-300 group-hover:scale-125">
+                                {item.icon}
+                            </div>
+                            <h3 className="text-xl text-test font-bold mb-2 transition-colors duration-300 group-hover:text-accent">
+                                {item.title}
+                            </h3>
+                            <p className="text-white font-semibold mb-4 transition-opacity duration-300 group-hover:opacity-90">
+                                {item.description}
+                            </p>
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                width={300}
+                                height={100}
+                                className="rounded-md mx-auto w-300 h-50 object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="flex justify-between mt-4">
+                                <h3 className="text-black ml-4 mt-1">
+                                    <a
+                                        className="text-test hover:underline font-medium flex items-center gap-1 transition-all duration-300 group-hover:text-accent"
+                                        href='/categories'
+                                    >
+                                        Смотреть весь каталог <FiArrowRight
+                                        className="group-hover:translate-x-1 transition-transform"/>
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            </section>
+
+
+
+
+
+            <div className={styles.cta}>
+                <h3>🎯 Освободите своё пространство</h3>
+                <p>Мы приедем, всё заберём, честно оценим и выкупим. Просто напишите нам в WhatsApp или позвоните.</p>
+                <a href="https://wa.me/79268495545" target="_blank" rel="noopener" className={styles.btn}>Связаться по
+                    WhatsApp</a>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
+
+
+
+
